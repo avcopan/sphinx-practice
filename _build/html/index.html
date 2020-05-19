@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>sphinx practice notes &#8212; sphinx-practice 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="hilib" href="hilib/docs/index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="sphinx-practice-notes">
+<h1>sphinx practice notes<a class="headerlink" href="#sphinx-practice-notes" title="Permalink to this headline">¶</a></h1>
+<p>The following are notes, primarily from <a class="reference external" href="https://www.ericholscher.com/blog/2016/jul/1/sphinx-and-rtd-for-writers/">Eric Holscher’s article</a>.</p>
+<p>Sphinx’s reSText is powerful because the syntax can be extended.</p>
+<p>It supports two types of extension:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Paragraph level (with Directives)</p></li>
+<li><p>Inline level (with Interpreted Text Roles, or “roles” for short)</p></li>
+</ol>
+</div></blockquote>
+<div class="section" id="paragraph-level-markup-directives">
+<h2>Paragraph Level Markup (Directives)<a class="headerlink" href="#paragraph-level-markup-directives" title="Permalink to this headline">¶</a></h2>
+<p>Here are some examples of <em>directives</em> in reSText.</p>
+<p>We can create a “warning”:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Here be dragons!</p>
+<p>Proceed with caution!</p>
+</div>
+<p>Here <code class="docutils literal notranslate"><span class="pre">warning</span></code> acts as the name of the directive, which is the part that you
+can extend to create custom directives.</p>
+<p>Directives can also take <em>arguments</em> and <em>options</em>, as when we insert an image:</p>
+<div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="_images/screenshot.png"><img alt="_images/screenshot.png" src="_images/screenshot.png" style="width: 75%;" /></a>
+<p class="caption"><span class="caption-text">A screenthot of my terminal as I was typing this.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>Here <code class="docutils literal notranslate"><span class="pre">screenshot.png</span></code> is the <em>argument</em> and <code class="docutils literal notranslate"><span class="pre">:width:</span></code> is an <em>option</em>. The
+rest is the <em>content</em>, which in this case determines the figure caption.</p>
+<p>You can write your own directives if you know some python.</p>
+</div>
+<div class="section" id="inline-level-markup-interpreted-text-roles-roles">
+<h2>Inline Level Markup (Interpreted Text Roles/”Roles”)<a class="headerlink" href="#inline-level-markup-interpreted-text-roles-roles" title="Permalink to this headline">¶</a></h2>
+<p>Here are some examples of <em>roles</em> in reSText.</p>
+<div class="highlight-reStructuredText notranslate"><div class="highlight"><pre><span></span>You can learn more about this in <span class="na">:rfc:</span><span class="nv">`1984`</span>.
+
+It is implemented in our code at <span class="na">:any:</span><span class="nv">`hilib.greet_me`</span>.
+</pre></div>
+</div>
+<p>This generates the following:</p>
+<div class="topic">
+<p class="topic-title"></p>
+<p>You can learn more about this in <span class="target" id="index-0"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc1984.html"><strong>RFC 1984</strong></a>.</p>
+<p>It is implemented in our code at <a class="reference internal" href="hilib/docs/api.html#hilib.greet_me" title="hilib.greet_me"><code class="xref any py py-func docutils literal notranslate"><span class="pre">hilib.greet_me</span></code></a>.</p>
+</div>
+<p>Notice that we were able to reference the function <code class="docutils literal notranslate"><span class="pre">hilib.greet_me</span></code>, and this
+took us to the appropriate place in the documentation. This will work in
+generated PDFs as well.</p>
+<p>I think you can also reference modules like so: <a class="reference internal" href="hilib/docs/api.html#module-hilib" title="hilib"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">hilib</span></code></a>.</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hilib/docs/index.html">hilib</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hilib/docs/api.html">hilib interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="autoparse/docs/index.html">autoparse</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autoparse/docs/api.html">autoparse interface</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">sphinx-practice</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hilib/docs/index.html">hilib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoparse/docs/index.html">autoparse</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="hilib/docs/index.html" title="next chapter">hilib</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Andreas V. Copan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

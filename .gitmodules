@@ -1,0 +1,3 @@
+[submodule "autoparse"]
+	path = autoparse
+	url = https://github.com/avcopan/autoparse

@@ -7,11 +7,11 @@ Welcome to hilib's documentation!
 =================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
-   install
    api
+   autoparse/docs/index
 
 
 Indices and tables

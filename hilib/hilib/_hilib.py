@@ -2,7 +2,7 @@
 """
 
 
-def greet_me(name):
+def greet_me(name='Jim'):
     """ greet me by name
 
     :param name: my name
